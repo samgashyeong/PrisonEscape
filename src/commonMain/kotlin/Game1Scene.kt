@@ -15,11 +15,15 @@ import kotlinx.coroutines.launch
 class Game1Scene() : Scene() {
     @OptIn(KorgeInternal::class, kotlinx.coroutines.DelicateCoroutinesApi::class)
     override suspend fun Container.sceneInit() {
+        val e1 = roundRect(720, 110 , 0, 0, fill = Colors.RED).xy(0, 400)
+        val e2 = roundRect(720, 110 , 0, 0, fill = Colors.RED).xy(1000, 400)
         var mainMusic = resourcesVfs["MainMusic.mp3"].readMusic()
         var dead = resourcesVfs["DeadSound.mp3"].readMusic()
         val exit = roundRect(110, 220 , 0, 0, fill = Colors.BLACK).xy(900, 0)
         val prisonBitmap = resourcesVfs["robloxPrison.png"].readBitmap()
-        val prison = image(prisonBitmap)
+        val prison = image(prisonBitmap).scale(0.7)
+        val sansBitmap = resourcesVfs["sans.png"].readBitmap()
+        val sans = image(sansBitmap).xy(220, 450).scale(0.1)
         val policeBitmap = resourcesVfs["johncenaPolice.png"].readBitmap()
         val police = image(policeBitmap).xy(1249, 110)
         val police1 = image(policeBitmap).xy(29, 210)
@@ -32,10 +36,10 @@ class Game1Scene() : Scene() {
         println(prison.x + prison.y)
         println(police.width)
         prison.addUpdater {
-            x = views.nativeMouseX-(prison.width/2)
-            y = views.nativeMouseY-((prison.height/2))
+            x = views.nativeMouseX-(prison.width/2 * 0.7)
+            y = views.nativeMouseY-((prison.height/2 * 0.7))
 
-            if(collidesWith(police) or collidesWith(police1)){
+            if(collidesWith(police) or collidesWith(police1) or collidesWith(sans)){
                 CoroutineScope(Dispatchers.Unconfined).launch {
                     mainMusic.volume = -50.0
                     dead.play()
@@ -46,6 +50,14 @@ class Game1Scene() : Scene() {
             if(collidesWith(exit)){
                 CoroutineScope(Dispatchers.Unconfined).launch {
                     sceneContainer.changeTo<Game2Scene>()
+                }
+            }
+
+            if(collidesWith(e1) or collidesWith(e2)){
+                CoroutineScope(Dispatchers.Unconfined).launch {
+                    mainMusic.volume = -50.0
+                    dead.play()
+                    sceneContainer.changeTo<EndScene>()
                 }
             }
         }

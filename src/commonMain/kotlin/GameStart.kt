@@ -22,7 +22,6 @@ class GameStart() : Scene() {
         startGame.fontSize = 123.0
         val prisonescape = text("Prison Escape").xy(640, 360)
         val mainImage = image(MainImage).xy(110, 210)
-
         mainImage.scale = 2.0
         startGame.onClick {
             println(gameStartMusic.volume)
