@@ -15,5 +15,6 @@ object ConfigModule : Module() {
         mapPrototype { EndScene() }
         mapPrototype { Game1Scene() }
         mapPrototype { Game2Scene() }
+        mapPrototype { Game3Scene() }
     }
 }

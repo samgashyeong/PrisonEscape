@@ -11,10 +11,10 @@ import kotlinx.coroutines.launch
 class Game2Scene() : Scene() {
     override suspend fun Container.sceneInit() {
         val prisonBitmap = resourcesVfs["robloxPrison.png"].readBitmap()
+        val prison = image(prisonBitmap).scale(0.7)
         var mainMusic = resourcesVfs["MainMusic.mp3"].readMusic()
         var dead = resourcesVfs["DeadSound.mp3"].readMusic()
         mainMusic.play()
-        val prison = image(prisonBitmap).scale(0.7)
         val pit1 = roundRect(300, 300, 0, 0, Colors.BROWN).xy(220, 110)
         val pit2 = roundRect(200, 200, 0, 0, Colors.BROWN).xy(720, 330)
         val exit = roundRect(110, 220 , 0, 0, fill = Colors.BLACK).xy(0, 600)
@@ -29,6 +29,14 @@ class Game2Scene() : Scene() {
                     mainMusic.volume = -50.0
                     dead.play()
                     sceneContainer.changeTo<EndScene>()
+                }
+            }
+
+            if(collidesWith(exit)){
+                CoroutineScope(Dispatchers.Unconfined).launch {
+                    mainMusic.volume = -50.0
+                    dead.play()
+                    sceneContainer.changeTo<Game3Scene>()
                 }
             }
         }
