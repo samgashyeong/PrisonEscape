@@ -1,3 +1,10 @@
+import Scene.Game1Scene
+import Scene.Game2Scene
+import Scene.Game3Scene
+import Scene.GameStart
+import ending.EndScene
+import ending.EndSceneEtrect
+import ending.EndSceneSans
 import com.soywiz.korge.scene.Module
 import com.soywiz.korge.scene.Scene
 import com.soywiz.korim.color.Colors
@@ -16,5 +23,7 @@ object ConfigModule : Module() {
         mapPrototype { Game1Scene() }
         mapPrototype { Game2Scene() }
         mapPrototype { Game3Scene() }
+        mapPrototype { EndSceneEtrect() }
+        mapPrototype { EndSceneSans() }
     }
 }

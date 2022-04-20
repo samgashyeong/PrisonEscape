@@ -1,17 +1,18 @@
+package ending
+
+import Scene.Game1Scene
 import com.soywiz.korau.sound.readMusic
 import com.soywiz.korge.input.onClick
 import com.soywiz.korge.scene.Scene
 import com.soywiz.korge.view.*
 import com.soywiz.korim.color.Colors
 import com.soywiz.korim.format.readBitmap
-import com.soywiz.korim.format.readNativeImage
 import com.soywiz.korio.file.std.resourcesVfs
-import kotlin.text.Typography.times
 
-class EndScene() : Scene() {
+class EndSceneEtrect : Scene() {
     override suspend fun Container.sceneInit() {
         val deadMusic = resourcesVfs["DeadScence.mp3"].readMusic()
-        val deadImageBitmap = resourcesVfs["DeadImage.jpg"].readBitmap()
+        val deadImageBitmap = resourcesVfs["etrectEnding.png"].readBitmap()
         deadMusic.play()
         val deadImage = image(deadImageBitmap).xy(110, 210)
         deadImage.scale = 1.2

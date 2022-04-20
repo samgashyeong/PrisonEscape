@@ -1,15 +1,17 @@
-import com.soywiz.korau.sound.Sound
+package Scene
+
+import ending.EndScene
+import ending.EndSceneEtrect
+import ending.EndSceneSans
 import com.soywiz.korau.sound.readMusic
 import com.soywiz.korge.internal.KorgeInternal
 import com.soywiz.korge.scene.Scene
 import com.soywiz.korge.view.*
 import com.soywiz.korim.color.Colors
 import com.soywiz.korim.format.readBitmap
-import com.soywiz.korim.format.readImageDataContainer
 import com.soywiz.korio.file.std.resourcesVfs
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 class Game1Scene() : Scene() {
@@ -39,7 +41,14 @@ class Game1Scene() : Scene() {
             x = views.nativeMouseX-(prison.width/2 * 0.7)
             y = views.nativeMouseY-((prison.height/2 * 0.7))
 
-            if(collidesWith(police) or collidesWith(police1) or collidesWith(sans)){
+            if(collidesWith(sans)){
+                CoroutineScope(Dispatchers.Unconfined).launch {
+                    mainMusic.volume = -50.0
+                    dead.play()
+                    sceneContainer.changeTo<EndSceneSans>()
+                }
+            }
+            if(collidesWith(police) or collidesWith(police1)){
                 CoroutineScope(Dispatchers.Unconfined).launch {
                     mainMusic.volume = -50.0
                     dead.play()
@@ -57,7 +66,7 @@ class Game1Scene() : Scene() {
                 CoroutineScope(Dispatchers.Unconfined).launch {
                     mainMusic.volume = -50.0
                     dead.play()
-                    sceneContainer.changeTo<EndScene>()
+                    sceneContainer.changeTo<EndSceneEtrect>()
                 }
             }
         }
