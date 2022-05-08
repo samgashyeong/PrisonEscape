@@ -12,7 +12,7 @@ import com.soywiz.korio.file.std.resourcesVfs
 class EndSceneSans : Scene() {
 
     override suspend fun Container.sceneInit() {
-        val deadMusic = resourcesVfs["DeadScence.mp3"].readMusic()
+        val deadMusic = resourcesVfs["sans.mp3"].readMusic()
         val deadImageBitmap = resourcesVfs["sansEnding.png"].readBitmap()
         deadMusic.play()
         val deadImage = image(deadImageBitmap).xy(110, 210)

@@ -1,0 +1,9 @@
+<ktree width="1280.0" height="720.0" gridWidth="20" gridHeight="20">
+	<image name="wire1" y="250.0" scaleX="0.7777777777777778" scaleY="0.20202020202020202" width="900.0" height="396.0" sourceFile="barbedwire.png"/>
+	<image name="wire2" x="980.0" y="240.0" scaleY="0.20202020202020202" width="900.0" height="396.0" sourceFile="barbedwire.png"/>
+	<image name="wire3" x="500.0" y="480.0" scaleX="0.8666666666666667" scaleY="0.20202020202020202" width="900.0" height="396.0" sourceFile="barbedwire.png"/>
+	<image name="wire4" x="-20.0" y="480.0" scaleX="0.4" scaleY="0.20202020202020202" width="900.0" height="396.0" sourceFile="barbedwire.png"/>
+	<image name="wire5" x="380.0" y="-11.0" scaleX="1.011111111111111" scaleY="0.29292929292929293" width="900.0" height="396.0" sourceFile="barbedwire.png"/>
+	<image name="wire6" y="-14.0" scaleX="0.22222222222222224" scaleY="0.29292929292929293" width="900.0" height="396.0" sourceFile="barbedwire.png"/>
+	<solidrect name="exit" colorMul="#000000ff" x="220.0" width="100.0" height="100.0"/>
+</ktree>

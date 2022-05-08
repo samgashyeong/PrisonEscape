@@ -20,6 +20,7 @@ class Game1Scene() : Scene() {
         val e1 = roundRect(720, 110 , 0, 0, fill = Colors.RED).xy(0, 400)
         val e2 = roundRect(720, 110 , 0, 0, fill = Colors.RED).xy(1000, 400)
         var mainMusic = resourcesVfs["MainMusic.mp3"].readMusic()
+        mainMusic.play()
         var dead = resourcesVfs["DeadSound.mp3"].readMusic()
         val exit = roundRect(110, 220 , 0, 0, fill = Colors.BLACK).xy(900, 0)
         val prisonBitmap = resourcesVfs["robloxPrison.png"].readBitmap()
@@ -33,8 +34,6 @@ class Game1Scene() : Scene() {
         var temp2 = 1
         var px = police.x+police.width/2
         var px1 = police1.x+police1.width/2
-
-        mainMusic.play()
         println(prison.x + prison.y)
         println(police.width)
         prison.addUpdater {
@@ -58,6 +57,7 @@ class Game1Scene() : Scene() {
 
             if(collidesWith(exit)){
                 CoroutineScope(Dispatchers.Unconfined).launch {
+                    mainMusic.volume = -50.0
                     sceneContainer.changeTo<Game2Scene>()
                 }
             }

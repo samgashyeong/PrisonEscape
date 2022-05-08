@@ -1,15 +1,10 @@
-import Scene.Game1Scene
-import Scene.Game2Scene
-import Scene.Game3Scene
-import Scene.GameStart
-import ending.EndScene
-import ending.EndSceneEtrect
-import ending.EndSceneSans
+import Scene.*
 import com.soywiz.korge.scene.Module
 import com.soywiz.korge.scene.Scene
 import com.soywiz.korim.color.Colors
 import com.soywiz.korinject.AsyncInjector
 import com.soywiz.korma.geom.SizeInt
+import ending.*
 import kotlin.reflect.KClass
 
 object ConfigModule : Module() {
@@ -23,7 +18,16 @@ object ConfigModule : Module() {
         mapPrototype { Game1Scene() }
         mapPrototype { Game2Scene() }
         mapPrototype { Game3Scene() }
+        mapPrototype { Game4Scene() }
+        mapPrototype { Game5Scene() }
+        mapPrototype { Game6Scene() }
+        mapPrototype { Game7Scene() }
+        mapPrototype { Game8Scene() }
+        mapPrototype { ClearScene() }
         mapPrototype { EndSceneEtrect() }
         mapPrototype { EndSceneSans() }
+        mapPrototype { EndSceneFall() }
+        mapPrototype { EndSceneWLqn() }
+        mapPrototype { EndSceneWire() }
     }
 }

@@ -1,0 +1,4 @@
+<ktree width="1280.0" height="720.0" gridWidth="20" gridHeight="20">
+	<text colorMul="#000000ff" x="380.0" y="200.0" scaleX="14.78" scaleY="14.469565217391303" autoScaling="true" text="Clear!" textSize="16.0" verticalAlign="TOP" horizontalAlign="LEFT"/>
+	<text name="restart" colorMul="#000000ff" x="1060.0" y="620.0" scaleX="3.402222222222222" scaleY="3.339130434782609" autoScaling="true" text="restart!" textSize="16.0" verticalAlign="TOP" horizontalAlign="LEFT"/>
+</ktree>

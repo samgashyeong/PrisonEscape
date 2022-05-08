@@ -1,4 +1,5 @@
 import com.soywiz.korge.gradle.*
+import org.jetbrains.kotlin.cli.jvm.compiler.findMainClass
 
 buildscript {
 	val korgePluginVersion: String by project
@@ -13,15 +14,12 @@ buildscript {
 		classpath("com.soywiz.korlibs.korge.plugins:korge-gradle-plugin:$korgePluginVersion")
 	}
 }
-
 apply<KorgeGradlePlugin>()
-
 korge {
 	id = "com.example.example"
 // To enable all targets at once
 
 	//targetAll()
-
 // To enable targets based on properties/environment variables
 	//targetDefault()
 

@@ -9,9 +9,11 @@ import com.soywiz.korim.color.Colors
 import com.soywiz.korim.format.readBitmap
 import com.soywiz.korio.file.std.resourcesVfs
 
-class EndSceneEtrect : Scene() {
+class EndSceneWLqn : Scene() {
     override suspend fun Container.sceneInit() {
-        val deadImageBitmap = resourcesVfs["etrectEnding.png"].readBitmap()
+        val deadMusic = resourcesVfs["DeadScence.mp3"].readMusic()
+        val deadImageBitmap = resourcesVfs["WLqnEnding.jpg"].readBitmap()
+        deadMusic.play()
         val deadImage = image(deadImageBitmap).xy(110, 210)
         deadImage.scale = 1.2
         val circle = circle(16.0, Colors.RED)
